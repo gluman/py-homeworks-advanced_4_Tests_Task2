@@ -1,5 +1,5 @@
 from unittest import TestCase
-from main import put_ya_folder
+from main import put_ya_folder, get_folder_path
 
 
 class TestYandex(TestCase):
@@ -9,3 +9,10 @@ class TestYandex(TestCase):
         for name in names_folders:
             result = put_ya_folder(name)
             self.assert_(result, expected)
+
+    def test_get_folder_path(self):
+        path = '2-dir'
+        expected = f'disk:/{path}'
+        result = get_folder_path(path)
+        self.assert_(result, expected)
+
